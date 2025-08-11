@@ -1,19 +1,23 @@
 #Substrings that reliably indicate that this is a tier piece.
 #This should be the only thing that needs to be updated for new patches,
 #unless raidbots changes something about their developer tools.
-tiernames = ["Cauldron Champion's",         #Death Knight
-             "Fel-Dealer's",                #Demon Hunter
-             "of Reclaiming Blight",        #Druid
-             "Opulent Treasurescale's",     #Evoker
-             "Tireless Collector's",        #Hunter
-             "Aspectral Emissary's",        #Mage
-             "Ageless Serpent's",           #Monk
-             "Aureate Sentry's",            #Paladin
-             "Confessor's Unshakable",      #Priest
-             "Spectral Gambler's",          #Rogue
-             "Gale Sovereign's",            #Shaman
-             "Spliced Fiendtrader's",       #Warlock
-             "Enforcer's Backalley"]        #Warrior
+tiernames = ["Hollow Sentinel's",           #Death Knight
+             "Charhound's Vicious",         #Demon Hunter
+             "of the Mother Eagle",         #Druid
+             "Spellweaver's Immaculate",    #Evoker
+             "Midnight Herald's",           #Hunter
+             "Augur's Ephemeral",           #Mage
+             "of Fallen Storms",            #Monk
+             "of the Lucent Batallion",     #Paladin
+             "Dying Star's",                #Priest
+             "of the Sudden Eclipse",       #Rogue
+             "of Channeled Fury",           #Shaman
+             "Inquisitor's Robes of Madness",       #Warlock, FUCK ALL THINGS
+             "Inquisitor's Clutches of Madness",       #Warlock, FUCK ALL THINGS
+             "Inquisitor's Portal to Madness",       #Warlock, FUCK ALL THINGS
+             "Inquisitor's Leggings of Madness",       #Warlock, FUCK ALL THINGS
+             "Inquisitor's Gaze of Madness",       #Warlock, FUCK ALL THINGS
+             "Living Weapon's"]             #Warrior
 
 
 #Try to replace tier names with, e.g., "Tier Helm 441", without knowing
@@ -30,14 +34,14 @@ def tierfilter_qe(itemname):
            "cowl" in itemname.lower() or \
            "cover" in itemname.lower() or \
            "mask" in itemname.lower() or \
-           "gaze" in itemname.lower() or \
+           #"gaze" in itemname.lower() or \    #FUCK ALL THINGS
            "scowl" in itemname.lower() or \
            "casque" in itemname.lower() or \
            "coif" in itemname.lower() or \
            "chronocap" in itemname.lower() or \
            "hatsuburi" in itemname.lower() or \
            "barbute" in itemname.lower() or \
-           "crest" in itemname.lower() or \
+           ("crest" in itemname.lower() and not "crestward" in itemname.lower()) or \
            "domeplate" in itemname.lower() or \
            "noetic" in itemname.lower() or \
            "skull" in itemname.lower() or \
@@ -52,12 +56,18 @@ def tierfilter_qe(itemname):
            "mane" in itemname.lower() or \
            "branches" in itemname.lower() or \
            "visor" in itemname.lower() or \
+           "scalp" in itemname.lower() or \
+           "focus" in itemname.lower() or \
+           "wide-brim" in itemname.lower() or \
+           "veil" in itemname.lower() or \
+           "aspect" in itemname.lower() or \ #BE VERY CAREFUL WITH THIS ONE
+           "portal" in itemname.lower() or \
            "visage" in itemname.lower():
             return "Tier Helmet"
         if "pauld" in itemname.lower() or \
            "shoulder" in itemname.lower() or \
            "mantle" in itemname.lower() or \
-           "wings" in itemname.lower() or \
+           #"wings" in itemname.lower() or \
            "trophy" in itemname.lower() or \
            "aurora" in itemname.lower() or \
            "spines" in itemname.lower() or \
@@ -91,6 +101,16 @@ def tierfilter_qe(itemname):
            "servants" in itemname.lower() or \
            "jaws" in itemname.lower() or \
            "reavers" in itemname.lower() or \
+           "perches" in itemname.lower() or \
+           "gaze" in itemname.lower() or \ #DELETE THIS AFTER MANAFORGE OMEGA, FUCK ALL THINGS
+           "hornguards" in itemname.lower() or \
+           "shadowguards" in itemname.lower() or \
+           "orbs of power" in itemname.lower() or \
+           "glyphs" in itemname.lower() or \
+           "chargers" in itemname.lower() or \
+           "pyrelights" in itemname.lower() or \
+           "fangs" in itemname.lower() or \ #BE VERY CAREFUL WITH THIS ONE
+           "ramparts" in itemname.lower() or \
            "amice" in itemname.lower():
             return "Tier Pauldrons"
         if "vest" in itemname.lower() or \
@@ -111,7 +131,7 @@ def tierfilter_qe(itemname):
            "razorhide" in itemname.lower() or \
            "plastron" in itemname.lower() or \
            "breast" in itemname.lower() or \
-           ("coat" in itemname.lower() and not "coattails" in itemname.lower() and not "petticoat" in itemname.lower())or \
+           ("coat" in itemname.lower() and not "coattails" in itemname.lower() and not "hidecoat" in itemname.lower() and not "petticoat" in itemname.lower())or \
            "nexus wraps" in itemname.lower() or \
            "gatecrasher's gi" in itemname.lower() or \
            "hide of the" in itemname.lower() or \
@@ -123,6 +143,10 @@ def tierfilter_qe(itemname):
            "inked coils" in itemname.lower() or \
            "soul engine" in itemname.lower() or \
            "tunic" in itemname.lower() or \
+           "habiliments" in itemname.lower() or \
+           "gi of fallen storms" in itemname.lower() or \
+           "furs" in itemname.lower() or \
+           "bulwark" in itemname.lower() or \
            "robe" in itemname.lower():
             return "Tier Chest"
         if "grips" in itemname.lower() or \
@@ -145,6 +169,10 @@ def tierfilter_qe(itemname):
            "eviscerators" in itemname.lower() or \
            "rippers" in itemname.lower() or \
            "gold-counters" in itemname.lower() or \
+           "wings" in itemname.lower() or \
+           "scaleguards" in itemname.lower() or \
+           "caress" in itemname.lower() or \
+           "clutch" in itemname.lower() or \
            "knuckles" in itemname.lower():
             return "Tier Gloves"
         #Check "legg" instead of "leg" because "legendary" might be part of an
@@ -171,6 +199,10 @@ def tierfilter_qe(itemname):
            "coattails" in itemname.lower() or \
            "moccasins of reclaiming blight" in itemname.lower() or \
            "petticoat" in itemname.lower() or \
+           "hidecoat" in itemname.lower() or \
+           "slacks" in itemname.lower() or \
+           "legwraps" in itemname.lower() or \
+           "pants" in itemname.lower() or \
            "braies" in itemname.lower():
             return "Tier Pants"
         print("ERROR: Could not resolve " + itemname + " properly!  Left as-is.")

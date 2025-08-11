@@ -158,7 +158,15 @@ bossesList = [
     "Sprocketmonger Lockenstock",
     "The One-Armed Bandit",
     "Mug'Zee, Heads of Security",
-    "Chrome King Gallywix"
+    "Chrome King Gallywix",
+    "Plexus Sentinel",
+    "Loom'ithar",
+    "Soulbinder Naazindhri",
+    "Forgeweaver Araz",
+    "The Soul Hunters",
+    "Fractillus",
+    "Nexus-King Salhadaar",
+    "Dimensius"
 ]
 
 def find_item_boss(inputString):
